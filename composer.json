@@ -1,0 +1,27 @@
+{
+    "name":"geissler/converter",
+    "description":"A small library to convert different bibliography formats into each other",
+    "keywords":["csl", "bibtex", "endnote"],
+    "type":"library",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Benjamin Geißler",
+            "email":"benjamin.geissler@gmail.com"
+        }
+    ],
+    "require":{
+        "php":">=5.3.2"
+    },
+    "autoload":{
+        "psr-0":{
+            "Geissler":"src/"
+        },
+        "files": [
+            "src/Geissler/Converter/Library/bibtexParse/PARSEENTRIES.php",
+            "src/Geissler/Converter/Library/bibtexParse/PARSECREATORS.php",
+            "src/Geissler/Converter/Library/bibtexParse/PARSEMONTH.php",
+            "src/Geissler/Converter/Library/bibtexParse/PARSEPAGE.php"
+        ]
+    }
+}
