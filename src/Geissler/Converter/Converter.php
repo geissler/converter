@@ -4,7 +4,7 @@ namespace Geissler\Converter;
 use Geissler\Converter\Interfaces\FormattingStandard;
 
 /**
- * Converter.
+ * Main converter class.
  *
  * @author Benjamin Geißler <benjamin.geissler@gmail.com>
  * @license MIT
@@ -12,7 +12,7 @@ use Geissler\Converter\Interfaces\FormattingStandard;
 class Converter
 {
     /**
-     * Convert the literature format in one standard into an other.
+     * Convert a literature format from one standard into an other.
      *
      * @param Interfaces\FormattingStandard $from
      * @param Interfaces\FormattingStandard $to

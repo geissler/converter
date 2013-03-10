@@ -45,6 +45,7 @@ class Entry
     private $citationLabel;
     private $abstract;
     private $annote;
+    private $archive;
     private $archiveLocation;
     private $archivePlace;
     private $authority;
@@ -258,6 +259,18 @@ class Entry
     public function getAnnote()
     {
         return $this->annote;
+    }
+
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    public function getArchive()
+    {
+        return $this->archive;
     }
 
     public function setArchiveLocation($archiveLocation)
