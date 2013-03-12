@@ -133,9 +133,16 @@ class Creator implements CreatorInterface
                 );
 
                 foreach ($fields as $field => $getter) {
-                    if ($entry->$getter() != ''
-                        && $entry->$getter() !== null) {
-                        $record[$field] =   $entry->$getter();
+                    $value  =   $entry->$getter();
+                    if ($value != ''
+                        && $value !== null
+                        && (
+                            (is_array($value) == true
+                                && count($value) > 0)
+                            || is_array($value) == false
+                            )
+                        ) {
+                        $record[$field] =   $value;
                     }
                 }
 

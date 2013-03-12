@@ -55,7 +55,6 @@ class Creator implements CreatorInterface
                 'PB'    => 'getPublisher',
                 'CY'    => 'getPublisherPlace',
                 'T1'    => 'getTitle',
-                'T2'    => 'getContainerTitle',
                 'TI'    => 'getTitle',
                 'TT'    => 'getOriginalTitle',
                 'CT'    => 'getTitle',
@@ -104,8 +103,12 @@ class Creator implements CreatorInterface
                 // dates
                 foreach ($dates as $field => $method) {
                     if (count($entry->$method()) > 0) {
-                        $date           =   $entry->$method();
-                        $record[$field] =   array($this->getDate($date[0]));
+                        $date   =   $entry->$method();
+                        $value  =   $this->getDate($date[0]);
+
+                        if ($value !== null) {
+                            $record[$field] =   array($this->getDate($date[0]));
+                        }
                     }
                 }
 
@@ -219,7 +222,7 @@ class Creator implements CreatorInterface
                 return 'PCOMM';
             case 'report':
                 return 'RPRT';
-            case 'Thesis':
+            case 'thesis':
                 return 'THES';
             case 'manuscript':
                 return 'UNPB';
@@ -242,12 +245,12 @@ class Creator implements CreatorInterface
      * Transfer a \Geissler\Converter\Model\Date object into a date string.
      *
      * @param \Geissler\Converter\Model\Date $date
-     * @return int|string
+     * @return string|null
      */
     private function getDate(Date $date)
     {
         if ($date->getYear() == null) {
-            return '';
+            return null;
         }
 
         $return =   $date->getYear();

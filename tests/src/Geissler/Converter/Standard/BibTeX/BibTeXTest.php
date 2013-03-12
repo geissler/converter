@@ -89,6 +89,7 @@ booktitle = {The title of the book}
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::setParser
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::parse
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::create
+     * @covers Geissler\Converter\Standard\Basic\StandardAbstract::retrieve
      */
     public function testDoNotRun()
     {

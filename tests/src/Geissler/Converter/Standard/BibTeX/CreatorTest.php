@@ -59,14 +59,12 @@ class CreatorTest extends \PHPUnit_Framework_TestCase
   series    = 10,
   address   = {The address},
   edition   = 3,
-  month     = 7,
   note      = {An optional note},
   isbn      = {3257227892}
 }',
                 '@book{book,
 author = {Babington, Peter},
 year = {1993},
-month = {7},
 title = {The title of the work},
 volume = {4},
 note = {An optional note},
@@ -250,7 +248,99 @@ year = {1973},
 title = {{Scavi di Ostia VII - I capitelli}},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
-}')
+}'),
+            array(
+                '@article{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+@manual{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+@inproceedings{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+@booklet{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+@techreport{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+@unpublished{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+',
+                '@article{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+
+@book{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+
+@inproceedings{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+
+@booklet{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+
+@techreport{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}
+
+@unpublished{Pensabene332,
+author = {Pensabene, Patrizio},
+year = {1973},
+title = {{Scavi di Ostia VII - I capitelli}},
+address = {Rom},
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
+}'
+            )
         );
     }
 

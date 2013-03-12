@@ -56,13 +56,15 @@ class CreatorTest extends \PHPUnit_Framework_TestCase
                 }
             }
 
-            if ($issued !== false) {
+            if ($issued !== false
+                && isset($issued[$count]) == true) {
                 $this->assertEquals($issued[$count]['year'], $entry['issued'][0]['year']);
                 $this->assertArrayNotHasKey('day', $entry['issued'][0]);
                 $this->assertArrayNotHasKey('month', $entry['issued'][0]);
             }
 
-            if ($issuedFull !== false) {
+            if ($issuedFull !== false
+                && isset($issuedFull[$count]) == true) {
                 $this->assertEquals($issuedFull[$count]['year'], $entry['issued'][0]['year']);
                 $this->assertEquals($issuedFull[$count]['day'], $entry['issued'][0]['day']);
                 $this->assertEquals($issuedFull[$count]['month'], $entry['issued'][0]['month']);
@@ -143,10 +145,171 @@ class CreatorTest extends \PHPUnit_Framework_TestCase
         },
         "title": "BookA",
         "type": "article-newspaper"
+    },
+    {
+        "id": "ITEM-2",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookB",
+        "type": "article-journal"
+    },
+    {
+        "id": "ITEM-3",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookC",
+        "type": "entry-dictionary"
+    },
+    {
+        "id": "ITEM-4",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookD",
+        "type": "entry-encyclopedia"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookE",
+        "type": "motion_picture"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookF",
+        "type": "musical_score"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookG",
+        "type": "post-weblog"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookH",
+        "type": "personal_communication"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookI",
+        "type": "review-book"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookJ",
+        "type": "article-magazine"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookK",
+        "type": "entry"
+    },
+    {
+        "id": "ITEM-5",
+        "issued": {
+            "date-parts": [
+                [
+                    1998,
+                    4,
+                    10
+                ]
+            ]
+        },
+        "title": "BookL",
+        "type": "legal_case"
     }
 ]',
-            array('BookA'),
-            array('article-newspaper'),
+            array(
+                'BookA', 'BookB', 'BookC', 'BookD', 'BookE', 'BookF', 'BookG', 'BookH', 'BookI', 'BookJ', 'BookK',
+                'BookL'
+            ),
+            array(
+                'article-newspaper', 'article-journal', 'entry-dictionary', 'entry-encyclopedia', 'motion_picture',
+                'musical_score', 'post-weblog', 'personal_communication', 'review-book', 'article-magazine', 'entry',
+                'legal_case'
+            ),
             false,
             false,
             array(

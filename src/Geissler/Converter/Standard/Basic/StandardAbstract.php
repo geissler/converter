@@ -46,10 +46,6 @@ abstract class StandardAbstract implements FormattingStandard
             $this->data =   $data;
         }
 
-        if (isset($this->entries) == true) {
-            unset($this->entries);
-        }
-
         if ($this->getParser()->parse($this->data) == true) {
             $this->entries  =   $this->getParser()->retrieve();
             return true;
@@ -122,7 +118,7 @@ abstract class StandardAbstract implements FormattingStandard
      * @param \Geissler\Converter\Interfaces\ParserInterface $parser
      * @return \Geissler\Converter\Standard\Basic\StandardAbstract
      */
-    public function setParser(ParserInterface $parser)
+    protected function setParser(ParserInterface $parser)
     {
         $this->parser = $parser;
         return $this;

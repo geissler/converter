@@ -103,6 +103,17 @@ pages = {769-822},
 title = {Die Grundlage der allgemeinen Relativitätstheorie},
 volume = {49}
 }'
+            ),
+            array(
+                new BibTeX('@article{article,
+author = {Einstein, Albert},
+year = {1916},
+pages = {769-822},
+title = {Die Grundlage der allgemeinen Relativitätstheorie},
+volume = {49}
+}'),
+                new CSL(),
+                '[{"type":"article","author":[{"family":"Einstein","given":"Albert"}],"issued":[{"year":"1916"}],"page":"769-822","page-first":"769","citation-label":"article","title":"Die Grundlage der allgemeinen Relativit\u00e4tstheorie"}]'
             )
         );
     }

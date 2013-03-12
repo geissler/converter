@@ -31,7 +31,7 @@ class Parser implements ParserInterface
         $reader->parseString($data);
         $records    =   $reader->getRecords();
 
-        if (is_array($records) == true
+        if (is_array($records) === true
             && count($records) > 0) {
             $this->entries  =   new Entries();
 

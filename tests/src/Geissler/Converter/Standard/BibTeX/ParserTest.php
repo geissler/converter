@@ -303,6 +303,34 @@ class ParserTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers Geissler\Converter\Standard\BibTeX\Parser::parse
      * @covers Geissler\Converter\Standard\BibTeX\Parser::extract
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::create
+     */
+    public function testMonth()
+    {
+        $input  =   '@booklet{booklet,
+                  title        = {The title of the work},
+                  author       = {Peter Caxton},
+                  howpublished = {How it was published},
+                  address      = {The address of the publisher},
+                  month        = 7,
+                  year         = 1993,
+                  note         = {An optional note},
+                  month        = {jan#"~8"}
+                }';
+        $this->assertTrue($this->object->parse($input));
+        $entries    =   $this->object->retrieve();
+        /** @var $entry \Geissler\Converter\Model\Entry */
+        $entry  =   $entries[0];
+        $dates  =   $entry->getIssued();
+        /** @var $date \Geissler\Converter\Model\Date */
+        $date   =   $dates[0];
+        $this->assertEquals('1', $date->getMonth());
+        $this->assertEquals('8', $date->getDay());
+    }
+
+    /**
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::parse
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::extract
      * @covers Geissler\Converter\Standard\BibTeX\Parser::retrieve
      */
     public function testParseNot()

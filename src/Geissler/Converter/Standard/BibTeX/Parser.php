@@ -81,8 +81,7 @@ class Parser implements ParserInterface
                 $bibTeX[$i]['editor']   =   $author->parse($bibTeX[$i]['editor']);
             }
 
-            if (isset($bibTeX[$i]['month']) == true
-                && preg_match('/^[0-9]+$/', $bibTeX[$i]['month']) == 0) {
+            if (isset($bibTeX[$i]['month']) == true) {
                 $bibTeX[$i]['month']   =   $date->init($bibTeX[$i]['month']);
             }
 
@@ -182,6 +181,8 @@ class Parser implements ParserInterface
                     // one date
                     if ($data[$i]['month'][2] !== false) {
                         $issued->setMonth($data[$i]['month'][2]);
+                    } elseif ($data[$i]['month'][1] !== false) {
+                        $issued->setMonth($data[$i]['month'][1]);
                     }
 
                     if ($data[$i]['month'][3] !== false) {

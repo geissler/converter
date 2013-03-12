@@ -87,7 +87,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
           ]
         },
         "id": "ITEM-1",
-        "type": "book"
+        "type": "book",
+        "page-first": "123",
+        "page" : "20-45"
     },
     {
         "author": [
@@ -192,7 +194,9 @@ class ParserTest extends \PHPUnit_Framework_TestCase
         "issued": {
             "date-parts": [
                 [
-                    "1998"
+                    "1998",
+                    "12",
+                    "24"
                 ]
             ]
         },

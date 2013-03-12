@@ -238,6 +238,36 @@ ER  - ',
                     'title'     =>  'Preface by an AIDS Victim',
                     'type'      =>  'chapter',
                 )
+            ),
+            array(
+                array(
+                    'input' =>  'TY  - THES
+A1  - Rieger, Anna-Katharina
+T1  - Heiligtümer in Ostia
+T2  -
+JO  -
+JO  -
+ED  -
+CY  - München
+PB  - Pfeil
+VL  - 8
+IS  -
+A3  -
+PY  - 2004
+SP  - 320
+KW  -  Ceres Fortuna Gelesen Ostia Religion Spes Venus
+
+ER  - ',
+                    'title'     =>  'Heiligtümer in Ostia',
+                    'type'      =>  'thesis',
+                    'authors'   =>  array(
+                        array(
+                            'family'    =>  'Rieger',
+                            'given'     =>  'Anna-Katharina'
+                        )
+                    ),
+                    'year'      =>  '2004'
+                )
             )
         );
     }
@@ -276,7 +306,7 @@ ER  - ',
         return array(
             array(
                 'TY  - BOOK
-A1  - Iossif, Panagiotis P.
+A1  - Iossif, Panagiotis P., Jr
 T1  - More than men, less than gods
 T2  - studies on royal cult and imperial worship : proceedings of the international colloquium organized by the Belgian School at Athens (November 1 - 2, 2007)
 
@@ -317,6 +347,155 @@ ER  - ',
                 array(
                     array('Kaiser', 'Kaiserzeit', 'Kult', 'NochZuLesen', 'Religion'),
                     array('Geschichte', 'NochZuLesen', 'Sozial')
+                )
+            )
+        );
+    }
+
+    /**
+     * @covers Geissler\Converter\Standard\RIS\Parser::parse
+     * @covers Geissler\Converter\Standard\RIS\Parser::getType
+     * @dataProvider dataProviderTypes
+     */
+    public function testTypes($input, array $type)
+    {
+        $this->assertTrue($this->object->parse($input));
+        $entries    =   $this->object->retrieve();
+        $position   =   0;
+        foreach ($entries as $entry) {
+            /** @var $entry \Geissler\Converter\Model\Entry */
+            $this->assertEquals($type[$position++], $entry->getType()->getType());
+        }
+    }
+
+    public function dataProviderTypes()
+    {
+        return array(
+            array(
+                'TY  - JOUR
+A1  - Kellum, B
+
+ER  -
+
+TY  - ABST
+A1  - Kellum, B
+
+ER  -
+
+TY  - ADVS
+A1  - Kellum, B
+
+ER  -
+
+TY  - ART
+A1  - Kellum, B
+
+ER  -
+
+TY  - BILL
+A1  - Kellum, B
+
+ER  -
+
+TY  - SER
+A1  - Kellum, B
+
+ER  -
+
+TY  - CASE
+A1  - Kellum, B
+
+ER  -
+
+TY  - CHAP
+A1  - Kellum, B
+
+ER  -
+
+TY  - CTLG
+A1  - Kellum, B
+
+ER  -
+
+TY  - DATA
+A1  - Kellum, B
+
+ER  -
+
+TY  - ELEC
+A1  - Kellum, B
+
+ER  -
+
+TY  - MGZN
+A1  - Kellum, B
+
+ER  -
+
+TY  - SOUND
+A1  - Kellum, B
+
+ER  -
+
+TY  - NEWS
+A1  - Kellum, B
+
+ER  -
+
+TY  - PAMP
+A1  - Kellum, B
+
+ER  -
+
+TY  - PCOMM
+A1  - Kellum, B
+
+ER  -
+
+TY  - RPRT
+A1  - Kellum, B
+
+ER  -
+
+TY  - UNPB
+A1  - Kellum, B
+
+ER  -
+
+TY  - PAT
+A1  - Kellum, B
+
+ER  -
+
+TY  - VIDEO
+A1  - Kellum, B
+
+ER  -
+
+TY  - COMP
+A1  - Kellum, B
+
+ER  -
+
+TY  - MAP
+A1  - Kellum, B
+
+ER  -
+
+TY  - SLIDE
+A1  - Kellum, B
+
+ER  -
+
+TY  - SLID
+A1  - Kellum, B
+
+ER  -',
+                array(
+                    'articleJournal', 'abstract', 'motionPicture', 'graphic', 'bill', 'book', 'legalCase', 'chapter',
+                    'catalog', 'dataset', 'webpage', 'articleMagazine', 'musicalScore', 'articleNewspaper', 'pamphlet',
+                    'personalCommunication', 'report', 'manuscript', 'patent', 'video', 'software', 'map', 'slide',
+                    'unknown'
                 )
             )
         );
