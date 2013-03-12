@@ -186,20 +186,20 @@ class Creator implements CreatorInterface
     {
         switch ($type) {
             case 'abstract':
-                return 'ABST';            
-            case 'motionPicture':                
-                return 'MPCT';                    
+                return 'ABST';
+            case 'motionPicture':
+                return 'MPCT';
             case 'graphic':
                 return 'ART';
             case 'bill':
-                return 'BILL';                
+                return 'BILL';
             case 'book':
                 return 'BOOK';
             case 'legalCase':
-                return 'CASE';                    
+                return 'CASE';
             case 'chapter':
                 return 'CHAP';
-            case 'articleJournal':                
+            case 'articleJournal':
                 return 'JOUR';
             case 'catalog':
                 return 'CTLG';
