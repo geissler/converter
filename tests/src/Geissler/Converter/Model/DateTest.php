@@ -130,4 +130,14 @@ class DateTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf($this->class, $this->object->setYear(1984));
         $this->assertEquals(1984, $this->object->getYear());
     }
+
+    /**
+     * @covers Geissler\Converter\Model\Date::setSeason
+     * @covers Geissler\Converter\Model\Date::getSeason
+     */
+    public function testSeason()
+    {
+        $this->assertInstanceOf($this->class, $this->object->setSeason('Spring'));
+        $this->assertEquals('Spring', $this->object->getSeason());
+    }
 }

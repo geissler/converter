@@ -30,6 +30,14 @@ class TypeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Geissler\Converter\Model\Type::setAbstract
+     */
+    public function testSetAbstract()
+    {
+        $this->assertInstanceOf($this->class, $this->object->setAbstract());
+    }
+
+    /**
      * @covers Geissler\Converter\Model\Type::setArticle
      */
     public function testSetArticle()
@@ -89,6 +97,15 @@ class TypeTest extends \PHPUnit_Framework_TestCase
     public function testSetBroadcast()
     {
         $this->assertInstanceOf($this->class, $this->object->setBroadcast());
+    }
+
+    /**
+     * @covers Geissler\Converter\Model\Type::setCatalog
+     *
+     */
+    public function testSetCatalog()
+    {
+        $this->assertInstanceOf($this->class, $this->object->setCatalog());
     }
 
     /**
@@ -377,6 +394,30 @@ class TypeTest extends \PHPUnit_Framework_TestCase
     public function testSetUnknown()
     {
         $this->assertInstanceOf($this->class, $this->object->setUnknown());
+    }
+
+    /**
+     * @covers Geissler\Converter\Model\Type::setSlide
+     */
+    public function testSetSlide()
+    {
+        $this->assertInstanceOf($this->class, $this->object->setSlide());
+    }
+
+    /**
+     * @covers Geissler\Converter\Model\Type::setSoftware
+     */
+    public function testSetSoftware()
+    {
+        $this->assertInstanceOf($this->class, $this->object->setSoftware());
+    }
+
+    /**
+     * @covers Geissler\Converter\Model\Type::setVideo
+     */
+    public function testSetVideo()
+    {
+        $this->assertInstanceOf($this->class, $this->object->setVideo());
     }
 
     /**

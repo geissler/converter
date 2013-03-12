@@ -4,6 +4,7 @@ namespace Geissler\Converter\Standard\BibTeX;
 use Geissler\Converter\Interfaces\CreatorInterface;
 use Geissler\Converter\Model\Entries;
 use Geissler\Converter\Model\Persons;
+use Geissler\Converter\Model\Entry;
 
 /**
  * Create bibTeX snippets.
@@ -51,7 +52,7 @@ class Creator implements CreatorInterface
         foreach ($data as $entry) {
             /** @var $entry \Geissler\Converter\Model\Entry */
             $data   =   array();
-            $data[] =   '@' . $entry->getType()->getType() . '{' . $entry->getCitationLabel();
+            $data[] =   $this->init($entry);
 
             // author
             if (count($entry->getAuthor()) > 0) {
@@ -84,18 +85,26 @@ class Creator implements CreatorInterface
             }
 
             // pages
-            if (is_array($entry->getPage()) == true
-                && count($entry->getPage()) > 0) {
-                $data[] =   'pages = {' . implode('-', $entry->getPage()) . '}';
-            } elseif ($entry->getPage() != '') {
-                $data[] =   'pages = {' . $entry->getPage() . '}';
-            } elseif ($entry->getPageFirst() != '') {
-                $data[] =   'pages = {' . $entry->getPageFirst() . '}';
+            if ($entry->getPages()->getRange() !== null) {
+                $data[] =   'pages = {' . $entry->getPages()->getRange() . '}';
+            } elseif ($entry->getPages()->getStart() !== null
+                && $entry->getPages()->getEnd() !== null) {
+                $data[] =   'pages = {' . $entry->getPages()->getStart() . '-' . $entry->getPages()->getEnd() . '}';
+            } elseif ($entry->getPages()->getStart() !== null) {
+                $data[] =   'pages = {' . $entry->getPages()->getStart() . '}';
+            } elseif ($entry->getPages()->getEnd() !== null) {
+                $data[] =   'pages = {' . $entry->getPages()->getEnd() . '}';
+            } elseif ($entry->getPages()->getTotal() !== null) {
+                $data[] =   'pages = {' . $entry->getPages()->getTotal() . '}';
             }
 
             foreach ($mapper as $field => $method) {
                 $value  =   $entry->$method();
-                if ($value != '') {
+                if (is_array($value) == true) {
+                    if (count($value) > 0) {
+                        $data[]   =   $field . ' = {' . implode(', ', $value) . '}';
+                    }
+                } elseif ($value != '') {
                     $data[]   =   $field . ' = {' . $value . '}';
                 }
             }
@@ -123,6 +132,59 @@ class Creator implements CreatorInterface
         }
 
         return false;
+    }
+
+    /**
+     * Create the bibTeX "header".
+     *
+     * @param \Geissler\Converter\Model\Entry $entry
+     * @return string
+     */
+    private function init(Entry $entry)
+    {
+        $type   =   $this->getType($entry->getType()->getType());
+        $return =   '@' . $type . '{';
+
+        if ($entry->getCitationLabel() !== null) {
+            $return .=  $entry->getCitationLabel();
+        } else {
+            $return .= $type;
+        }
+
+        return $return;
+    }
+
+    /**
+     * Retrieve the bibTeX type.
+     *
+     * @param string $type
+     * @return string
+     */
+    private function getType($type)
+    {
+        switch ($type) {
+            case 'article':
+            case 'articleJournal':
+            case 'articleMagazine':
+            case 'articleNewspaper':
+                return 'article';
+            case 'manual':
+                return 'book';
+            case 'chapter':
+                return 'inbook';
+            case 'paperConference':
+                return 'inproceedings';
+            case 'thesis':
+                return 'phdthesis';
+            case 'pamphlet':
+                return 'booklet';
+            case 'report':
+                return 'techreport';
+            case 'manuscript':
+                return 'unpublished';
+            default:
+                return $type;
+        }
     }
 
     /**

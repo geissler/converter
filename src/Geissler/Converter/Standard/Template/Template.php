@@ -1,18 +1,17 @@
 <?php
-namespace Geissler\Converter\Standard\RIS;
+namespace Geissler\Converter\Standard\Template;
 
 use Geissler\Converter\Standard\Basic\StandardAbstract;
-use Geissler\Converter\Standard\RIS\Parser;
-use Geissler\Converter\Standard\RIS\Creator;
+use Geissler\Converter\Standard\Template\Parser;
+use Geissler\Converter\Standard\Template\Creator;
 
 /**
- * RIS (Research Information System).
+ * TODO: Template comment.
  *
  * @author Benjamin Geißler <benjamin.geissler@gmail.com>
  * @license MIT
- * @see http://en.wikipedia.org/wiki/RIS_(file_format)
  */
-class RIS extends StandardAbstract
+class Template extends StandardAbstract
 {
     /**
      * Constructor.

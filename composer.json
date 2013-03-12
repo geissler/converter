@@ -1,9 +1,10 @@
 {
     "name":"geissler/converter",
     "description":"A small library to convert different bibliography formats into each other",
-    "keywords":["csl", "bibtex", "endnote", "ris"],
+    "keywords":["csl", "bibtex", "endnote", "ris", "bibliography"],
     "type":"library",
     "license":"MIT",
+    "homepage": "https://github.com/geissler/converter",
     "authors":[
         {
             "name":"Benjamin Geißler",
@@ -11,8 +12,8 @@
         }
     ],
     "require":{
-        "php":">=5.3.2",
-        "technosophos/LibRIS": ">=1.0.0"
+        "php":">=5.3.0",
+        "technosophos/LibRIS": "dev-master"
     },
     "autoload":{
         "psr-0":{

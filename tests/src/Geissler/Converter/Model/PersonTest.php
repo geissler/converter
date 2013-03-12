@@ -30,6 +30,7 @@ class PersonTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Geissler\Converter\Model\Person::__construct
      * @covers Geissler\Converter\Model\Person::setDroppingParticle
      */
     public function testSetDroppingParticle()

@@ -109,20 +109,16 @@ class Parser implements ParserInterface
                 'DOI'                         => 'setDOI',
                 'event'                       => 'setEvent',
                 'event-place'                 => 'setEventPlace',
-                'first-reference-note-number' => 'setFirstReferenceNoteNumber',
                 'genre'                       => 'setGenre',
                 'ISBN'                        => 'setISBN',
                 'ISSN'                        => 'setISSN',
                 'jurisdiction'                => 'setJurisdiction',
                 'keyword'                     => 'setKeyword',
-                'locator'                     => 'setLocator',
                 'medium'                      => 'setMedium',
                 'note'                        => 'setNote',
                 'original-publisher'          => 'setOriginalPublisher',
                 'original-publisher-place'    => 'setOriginalPublisherPlace',
                 'original-title'              => 'setOriginalTitle',
-                'page'                        => 'setPage',
-                'page-first'                  => 'setPageFirst',
                 'PMCID'                       => 'setPMCID',
                 'PMID'                        => 'setPMID',
                 'publisher'                   => 'setPublisher',
@@ -160,6 +156,15 @@ class Parser implements ParserInterface
                     if (isset($record[$field]) == true) {
                         $this->createDate($record[$field], $method);
                     }
+                }
+
+                // pages
+                if (isset($record['page']) == true) {
+                    $this->entry->getPages()->setRange($record['page']);
+                }
+
+                if (isset($record['page-first']) == true) {
+                    $this->entry->getPages()->setStart($record['page-first']);
                 }
 
                 // normal fields

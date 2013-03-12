@@ -81,4 +81,20 @@ booktitle = {The title of the book}
             )
         );
     }
+
+    /**
+     * @covers Geissler\Converter\Standard\BibTeX\BibTeX::__construct
+     * @covers Geissler\Converter\Standard\Basic\StandardAbstract::__construct
+     * @covers Geissler\Converter\Standard\Basic\StandardAbstract::setCreator
+     * @covers Geissler\Converter\Standard\Basic\StandardAbstract::setParser
+     * @covers Geissler\Converter\Standard\Basic\StandardAbstract::parse
+     * @covers Geissler\Converter\Standard\Basic\StandardAbstract::create
+     */
+    public function testDoNotRun()
+    {
+        $this->assertFalse($this->object->parse());
+        $this->assertEquals('', $this->object->create(new \Geissler\Converter\Model\Entries()));
+        $this->setExpectedException('ErrorException');
+        $this->object->retrieve();
+    }
 }

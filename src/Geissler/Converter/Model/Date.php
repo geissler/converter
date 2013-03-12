@@ -21,6 +21,8 @@ class Date
     private $minute;
     /** @var integer */
     private $second;
+    /** @var string */
+    private $season;
 
     /**
      * Day.
@@ -107,6 +109,29 @@ class Date
     public function getMonth()
     {
         return $this->month;
+    }
+
+    /**
+     * Name of a season.
+     *
+     * @param string $season
+     * @return \Geissler\Converter\Model\Date
+     */
+    public function setSeason($season)
+    {
+        $this->season = $season;
+
+        return $this;
+    }
+
+    /**
+     * Name of a season.
+     *
+     * @return string
+     */
+    public function getSeason()
+    {
+        return $this->season;
     }
 
     /**

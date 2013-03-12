@@ -196,9 +196,16 @@ class Parser implements ParserInterface
 
             // pages
             if (isset($data[$i]['pages']) == true) {
-                $entry->setPage($data[$i]['pages']);
                 if (is_array($data[$i]['pages']) == true) {
-                    $entry->setPageFirst($data[$i]['pages'][0]);
+                    if (isset($data[$i]['pages'][0]) == true) {
+                        $entry->getPages()->setStart($data[$i]['pages'][0]);
+                    }
+
+                    if (isset($data[$i]['pages'][1]) == true) {
+                        $entry->getPages()->setEnd($data[$i]['pages'][1]);
+                    }
+                } elseif ($data[$i]['pages'] != '') {
+                    $entry->getPages()->setTotal($data[$i]['pages']);
                 }
             }
 

@@ -13,6 +13,17 @@ class Type
     private $type;
 
     /**
+     * Only an abstract.
+     *
+     * @return Type
+     */
+    public function setAbstract()
+    {
+        $this->type =   'abstract';
+        return $this;
+    }
+
+    /**
      * An unspecific article.
      *
      * @return Type
@@ -86,6 +97,17 @@ class Type
     public function setBroadcast()
     {
         $this->type = 'broadcast';
+        return $this;
+    }
+
+    /**
+     * A catalog.
+     *
+     * @return Type
+     */
+    public function setCatalog()
+    {
+        $this->type =   'catalog';
         return $this;
     }
 
@@ -376,6 +398,17 @@ class Type
     }
 
     /**
+     * A slide (PowerPoint etc).
+     *
+     * @return Type
+     */
+    public function setSlide()
+    {
+        $this->type =   'slide';
+        return $this;
+    }
+
+    /**
      * A song.
      *
      * @return Type
@@ -394,6 +427,17 @@ class Type
     public function setSpeech()
     {
         $this->type = 'speech';
+        return $this;
+    }
+
+    /**
+     * The name of a software or a computer program.
+     *
+     * @return Type
+     */
+    public function setSoftware()
+    {
+        $this->type =   'software';
         return $this;
     }
 
@@ -438,6 +482,17 @@ class Type
     public function setUnknown()
     {
         $this->type =   'unknown';
+        return $this;
+    }
+
+    /**
+     * A video.
+     *
+     * @return Type
+     */
+    public function setVideo()
+    {
+        $this->type =   'video';
         return $this;
     }
 

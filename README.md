@@ -23,14 +23,46 @@ To convert form one standard to an other:
     require __DIR__ . '/vendor/autoload.php';
 
     use Geissler\Converter\Converter;
+    use Geissler\Converter\Standard\RIS\RIS;
     use Geissler\Converter\Standard\BibTeX\BibTeX;
-    use Geissler\Converter\Standard\CSL\CSL;
 
-    // your input BibTeX data
-    $data = '';
+    // your input RIS data
+    $data = 'TY  - JOUR
+             TI  - Die Grundlage der allgemeinen Relativitätstheorie
+             AU  - Einstein, Albert
+             PY  - 1916
+             SP  - 769
+             EP  - 822
+             JO  - Annalen der Physik
+             VL  - 49
+             ER  - ';
 
-    $converter = new Converter();
-    $csl = $converter->convert(new BibTeX($data), new CSL());
+    $converter  =   new Converter();
+    $bibTeX     =   $converter->convert(new RIS($data), new BibTeX());
+
+    /**
+     * $bibTeX has know the following value:
+     *
+     * @article{article,
+     *      author = {Einstein, Albert},
+     *      year = {1916},
+     *      pages = {769-822},
+     *      title = {Die Grundlage der allgemeinen Relativitätstheorie},
+     *      volume = {49}
+     * }
+     */
 ```
 
 ## Adding a standard
+To implement a new standard is quite simple:
+
+1. Create a copy of the folder **src/Geissler/Converter/Standard/Template**
+2. Change the name to the new standard.
+3. Rename also the **Template.php** file to the name of the standard
+4. Replace every occurence of **Template** in the files **Creator.php**, **Parser.php** and **Template.php** with the
+ name of the new standard.
+5. Implement the methods **create** and **retrieve** in **Creator.php**
+6. Implement the methods **parse** and **retrieve** in **Parser.php**
+7. Don't forget to write your PHPUnit tests and follow the
+[PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md "PSR-2") coding
+standard

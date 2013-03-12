@@ -48,7 +48,6 @@ class Creator implements CreatorInterface
                     'reviewed-author'       =>  'getReviewedAuthor',
                     'translator'            =>  'getTranslator'
                 );
-
                 foreach ($persons as $field => $getter) {
                     $person =   $this->createPerson($entry->$getter());
 
@@ -64,13 +63,30 @@ class Creator implements CreatorInterface
                     'original-date' =>  'getOriginalDate',
                     'submitted'     =>  'getSubmitted'
                 );
-
                 foreach ($dates as $field => $getter) {
                     $date   =   $this->createDate($entry->$getter());
 
                     if (count($date) > 0) {
                         $record[$field] =   $date;
                     }
+                }
+
+                // pages
+                if ($entry->getPages()->getRange() !== null) {
+                    $record['page'] =   $entry->getPages()->getRange();
+                } elseif ($entry->getPages()->getStart() !== null
+                    && $entry->getPages()->getEnd() !== null) {
+                    $record['page'] =   $entry->getPages()->getStart() . '-' . $entry->getPages()->getEnd();
+                } elseif ($entry->getPages()->getStart() !== null) {
+                    $record['page'] =   $entry->getPages()->getStart();
+                } elseif ($entry->getPages()->getEnd() !== null) {
+                    $record['page'] =   $entry->getPages()->getEnd();
+                } elseif ($entry->getPages()->getTotal() !== null) {
+                    $record['page'] =   $entry->getPages()->getTotal();
+                }
+
+                if ($entry->getPages()->getStart() !== null) {
+                    $record['page-first'] =   $entry->getPages()->getStart();
                 }
 
                 $fields = array(
@@ -89,20 +105,16 @@ class Creator implements CreatorInterface
                     'DOI'                         => 'getDOI',
                     'event'                       => 'getEvent',
                     'event-place'                 => 'getEventPlace',
-                    'first-reference-note-number' => 'getFirstReferenceNoteNumber',
                     'genre'                       => 'getGenre',
                     'ISBN'                        => 'getISBN',
                     'ISSN'                        => 'getISSN',
                     'jurisdiction'                => 'getJurisdiction',
                     'keyword'                     => 'getKeyword',
-                    'locator'                     => 'getLocator',
                     'medium'                      => 'getMedium',
                     'note'                        => 'getNote',
                     'original-publisher'          => 'getOriginalPublisher',
                     'original-publisher-place'    => 'getOriginalPublisherPlace',
                     'original-title'              => 'getOriginalTitle',
-                    'page'                        => 'getPage',
-                    'page-first'                  => 'getPageFirst',
                     'PMCID'                       => 'getPMCID',
                     'PMID'                        => 'getPMID',
                     'publisher'                   => 'getPublisher',

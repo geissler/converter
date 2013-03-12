@@ -33,6 +33,8 @@ class CreatorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Geissler\Converter\Standard\BibTeX\Creator::create
+     * @covers Geissler\Converter\Standard\BibTeX\Creator::init
+     * @covers Geissler\Converter\Standard\BibTeX\Creator::getType
      * @covers Geissler\Converter\Standard\BibTeX\Creator::createPerson
      * @covers Geissler\Converter\Standard\BibTeX\Creator::retrieve
      * @dataProvider dataProviderCreate
@@ -89,7 +91,7 @@ isbn = {3257227892}
   month        = 7,
   note         = {An optional note}
 }',
-                '@chapter{inbook,
+                '@inbook{inbook,
 author = {Eston, Peter},
 year = {1993},
 month = {7},
@@ -133,7 +135,7 @@ author = {von Rohden, Hermann and Winnefeld, Hermann},
 year = {1911},
 title = {{Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit}},
 address = {Berlin},
-keywords = {Nemi NochZuLesen Terrakotten Vergleich}
+keywords = {Nemi, NochZuLesen, Terrakotten, Vergleich}
 }'),
             array('@InCollection{Demma1635,
   author = "Demma, Filippo and Pietrafesa, D and Pintucci, Alessandro",
@@ -152,7 +154,7 @@ keywords = {Nemi NochZuLesen Terrakotten Vergleich}
 }
 
 ',
-            '@chapter{Demma1635,
+            '@inbook{Demma1635,
 author = {Demma, Filippo and Pietrafesa, D and Pintucci, Alessandro},
 editor = {Gatti, Sandra},
 year = {2002},
@@ -162,7 +164,7 @@ publisher = {De Luca},
 address = {Rom},
 isbn = {88-8016-510-0},
 booktitle = {Il Lazio. Regione di Roma. Kolloquium, 12. Juli - 10. September 2002, Palestrina},
-keywords = {Entwicklung Kontext NochZuLesen Praeneste Stadt}
+keywords = {Entwicklung, Kontext, NochZuLesen, Praeneste, Stadt}
 }'),
             array('@phdthesis{phdthesis,
   author       = {Peter Joslin},
@@ -174,7 +176,7 @@ keywords = {Entwicklung Kontext NochZuLesen Praeneste Stadt}
   note         = {An optional note},
   pages        = 23
 }',
-            '@thesis{phdthesis,
+            '@phdthesis{phdthesis,
 author = {Joslin, Peter},
 year = {1993},
 month = {7},
@@ -239,7 +241,7 @@ author = {von Rohden, Hermann and Winnefeld, Hermann},
 year = {1911},
 title = {{Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit}},
 address = {Berlin},
-keywords = {Nemi NochZuLesen Terrakotten Vergleich}
+keywords = {Nemi, NochZuLesen, Terrakotten, Vergleich}
 }
 
 @book{Pensabene332,
@@ -247,7 +249,7 @@ author = {Pensabene, Patrizio},
 year = {1973},
 title = {{Scavi di Ostia VII - I capitelli}},
 address = {Rom},
-keywords = {Architektur NochZuLesen Ostia Vergleich}
+keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }')
         );
     }
