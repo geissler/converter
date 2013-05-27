@@ -13,7 +13,7 @@
     ],
     "require":{
         "php":">=5.3.0",
-        "technosophos/LibRIS": "dev-master"
+        "technosophos/LibRIS": "2.0.1"
     },
     "autoload":{
         "psr-0":{
