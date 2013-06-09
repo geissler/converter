@@ -212,6 +212,7 @@ class Parser implements ParserInterface
 
             $mapper =   array(
                 'title'             =>  'setTitle',
+                'abstract'          =>  'setAbstract',
                 'volume'            =>  'setVolume',
                 'number'            =>  'setNumber',
                 'note'              =>  'setNote',
