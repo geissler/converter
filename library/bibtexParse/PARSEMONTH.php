@@ -5,7 +5,7 @@ Do whatever you like with this -- some credit to the author(s) would be apprecia
 
 A collection of PHP classes to manipulate bibtex files.
 
-If you make improvements, please consider contacting the administrators at bibliophile.sourceforge.net so 
+If you make improvements, please consider contacting the administrators at bibliophile.sourceforge.net so
 that your improvements can be added to the release package.
 
 Mark Grimshaw 2005
@@ -114,4 +114,3 @@ class PARSEMONTH
 			);
 	}
 }
-?>
