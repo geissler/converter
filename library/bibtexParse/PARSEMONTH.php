@@ -26,9 +26,16 @@ http://bibliophile.sourceforge.net
 class PARSEMONTH
 {
 // Constructor
+	function __construct()
+	{
+
+	}
+
 	function PARSEMONTH()
 	{
+		self::__construct();
 	}
+	
 	function init($monthField)
 	{
 		$startMonth = $this->startDay = $endMonth = $this->endDay = FALSE;

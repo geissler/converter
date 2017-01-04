@@ -132,7 +132,7 @@ END;
 
 class PARSEENTRIES
 {
-	function PARSEENTRIES()
+	function __construct()
 	{
 		$this->preamble = $this->strings = $this->undefinedStrings = $this->entries = array();
 		$this->count = 0;
@@ -142,6 +142,12 @@ class PARSEENTRIES
 		$this->parseFile = TRUE;
 		$this->outsideEntry = TRUE;
 	}
+
+	function PARSEENTRIES()
+	{
+        self::__construct();
+    }
+
 // Open bib file
 	function openBib($file)
 	{
