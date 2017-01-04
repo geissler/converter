@@ -27,13 +27,13 @@ http://bibliophile.sourceforge.net
 
 class PARSECREATORS
 {
-	function ___construct()
+	function __construct()
 	{
 	}
 
 	function PARSECREATORS()
 	{
-		self::___construct();
+		self::__construct();
 	}
 /* Create writer arrays from bibtex input.
 'author field can be (delimiters between authors are 'and' or '&'):
