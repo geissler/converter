@@ -1,14 +1,14 @@
 {
-    "name":"geissler/converter",
+    "name":"daviian/converter",
     "description":"A small library to convert different bibliography formats into each other",
     "keywords":["csl", "bibtex", "endnote", "ris", "bibliography"],
     "type":"library",
     "license":"MIT",
-    "homepage": "https://github.com/geissler/converter",
+    "homepage": "https://github.com/daviian/converter",
     "authors":[
         {
-            "name":"Benjamin Geißler",
-            "email":"benjamin.geissler@gmail.com"
+            "name":"David Schneiderbauer",
+            "email":"dschneiderbauer@gmail.com"
         }
     ],
     "require":{
