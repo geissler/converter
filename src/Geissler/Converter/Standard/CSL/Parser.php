@@ -134,7 +134,7 @@ class Parser implements ParserInterface
                 'URL'                         => 'setURL',
                 'version'                     => 'setVersion',
                 'yearSuffix'                  => 'setYearSuffix',
-                'volume '                     => 'setVolume'
+                'volume'                      => 'setVolume'
             );
 
             foreach ($json as $record) {
