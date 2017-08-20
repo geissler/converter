@@ -257,18 +257,21 @@ class Creator implements CreatorInterface
             /** @var $date \Geissler\Converter\Model\Date */
             $entry  =   array();
             if ($date->getYear() !== null) {
-                $entry['year']  =   $date->getYear();
+                $entry[]  =   $date->getYear();
             }
 
             if ($date->getMonth() !== null) {
-                $entry['month']  =   $date->getMonth();
+                $entry[]  =   $date->getMonth();
             }
 
             if ($date->getDay() !== null) {
-                $entry['day']  =   $date->getDay();
+                $entry[]  =   $date->getDay();
             }
 
-            $data[] =   $entry;
+            if ($data['date-parts'] === null && !empty($entry)) {
+              $data['date-parts']  = array();
+            }
+            $data['date-parts'][] =   $entry;
         }
 
         return $data;
