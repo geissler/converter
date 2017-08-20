@@ -27,8 +27,13 @@ http://bibliophile.sourceforge.net
 
 class PARSECREATORS
 {
+	function __construct()
+	{
+	}
+
 	function PARSECREATORS()
 	{
+		self::__construct();
 	}
 /* Create writer arrays from bibtex input.
 'author field can be (delimiters between authors are 'and' or '&'):
@@ -39,7 +44,7 @@ class PARSECREATORS
 	function parse($input)
 	{
 		$input = trim($input);
-// split on ' and ' 
+// split on ' and '
 		$authorArray = preg_split("/\s(and|&)\s/i", $input);
 		foreach($authorArray as $value)
 		{
@@ -51,11 +56,11 @@ class PARSECREATORS
 			if($size == 1)
 			{
 // Is complete surname enclosed in {...}, unless the string starts with a backslash (\) because then it is
-// probably a special latex-sign.. 
-// 2006.02.11 DR: in the last case, any NESTED curly braces should also be taken into account! so second 
+// probably a special latex-sign..
+// 2006.02.11 DR: in the last case, any NESTED curly braces should also be taken into account! so second
 // clause rules out things such as author="a{\"{o}}"
-// 
-                if(preg_match("/(.*){([^\\\].*)}/", $value, $matches) && 
+//
+                if(preg_match("/(.*){([^\\\].*)}/", $value, $matches) &&
 					!(preg_match("/(.*){\\\.{.*}.*}/", $value, $matches2)))
 				{
 					$author = explode(" ", $matches[1]);
@@ -117,7 +122,7 @@ class PARSECREATORS
 			$firstname = join(" ", $firstnameArray);
 		return array($firstname, $initials);
 	}
-// surname may have title such as 'den', 'von', 'de la' etc. - characterised by first character lowercased.  Any 
+// surname may have title such as 'den', 'von', 'de la' etc. - characterised by first character lowercased.  Any
 // uppercased part means lowercased parts following are part of the surname (e.g. Van den Bussche)
 	function grabSurname($input)
 	{
@@ -144,4 +149,3 @@ class PARSECREATORS
 		return array($surname, FALSE);
 	}
 }
-?>
