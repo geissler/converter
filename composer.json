@@ -16,8 +16,8 @@
         "technosophos/LibRIS": ">=2.0.2"
     },
     "autoload":{
-        "psr-0":{
-            "Geissler":"src/"
+        "psr-4":{
+            "Geissler\\":"src/Geissler/"
         },
         "files": [
             "library/bibtexParse/PARSEENTRIES.php",
