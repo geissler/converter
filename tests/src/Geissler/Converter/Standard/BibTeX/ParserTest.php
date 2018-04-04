@@ -7,7 +7,7 @@ namespace Geissler\Converter\Standard\BibTeX;
  * Examples are mainly copied from https://verbosus.com/bibtex-style-examples.html?lang=de
  * @see https://verbosus.com/bibtex-style-examples.html?lang=de
  */
-class ParserTest extends \PHPUnit_Framework_TestCase
+class ParserTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var Parser

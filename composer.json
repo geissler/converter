@@ -17,7 +17,7 @@
     },
     "autoload":{
         "psr-4":{
-            "Geissler\\":"src/Geissler/"
+            "Geissler\\": "src/Geissler/"
         },
         "files": [
             "library/bibtexParse/PARSEENTRIES.php",
@@ -25,5 +25,8 @@
             "library/bibtexParse/PARSEMONTH.php",
             "library/bibtexParse/PARSEPAGE.php"
         ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
     }
 }

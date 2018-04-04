@@ -94,5 +94,8 @@ To implement a new standard is quite simple:
 5. Implement the methods **create** and **retrieve** in **Creator.php**
 6. Implement the methods **parse** and **retrieve** in **Parser.php**
 7. Don't forget to write your PHPUnit tests and follow the
-[PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md "PSR-2") coding
-standard
+[PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md "PSR-2") coding standard
+
+## Running tests
+
+To run all the tests, call `vendor\bin\phpunit tests`.
