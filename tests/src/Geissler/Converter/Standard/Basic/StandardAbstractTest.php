@@ -43,37 +43,41 @@ class StandardAbstractTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::parse
+     * 
+     * @expectedException ErrorException
      */
     public function testParse()
     {
-        $this->setExpectedException('ErrorException');
         $this->object->parse('');
     }
 
     /**
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::retrieve
+     * 
+     * @expectedException ErrorException
      */
     public function testRetrieve()
     {
-        $this->setExpectedException('ErrorException');
         $this->object->retrieve();
     }
 
     /**
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::getCreator
+     *
+     * @expectedException ErrorException
      */
     public function testGetCreator()
     {
-        $this->setExpectedException('ErrorException');
         $this->object->getCreator();
     }
 
     /**
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::getParser
+     * 
+     * @expectedException ErrorException
      */
     public function testGetParser()
     {
-        $this->setExpectedException('ErrorException');
         $this->object->getParser();
     }
 }

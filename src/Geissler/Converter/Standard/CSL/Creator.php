@@ -268,7 +268,7 @@ class Creator implements CreatorInterface
                 $entry[]  =   $date->getDay();
             }
 
-            if ($data['date-parts'] === null && !empty($entry)) {
+            if (!isset($data['date-parts']) && !empty($entry)) {
               $data['date-parts']  = array();
             }
             $data['date-parts'][] =   $entry;

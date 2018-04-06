@@ -504,11 +504,12 @@ ER  -',
     /**
      * @covers Geissler\Converter\Standard\RIS\Parser::parse
      * @covers Geissler\Converter\Standard\RIS\Parser::retrieve
+     * 
+     * @expectedException ErrorException
      */
     public function testRetrieve()
     {
         $this->assertFalse($this->object->parse(''));
-        $this->setExpectedException('ErrorException');
         $this->object->retrieve();
     }
 }

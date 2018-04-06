@@ -96,6 +96,6 @@ To implement a new standard is quite simple:
 7. Don't forget to write your PHPUnit tests and follow the
 [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md "PSR-2") coding standard
 
-## Running tests
+## Tests
 
-To run all the tests, call `vendor\bin\phpunit tests`.
+Converter depends on PHPUnit. Ensure that your dependencies are up to date by running `composer update` then call `vendor\bin\phpunit tests` to run all the tests.

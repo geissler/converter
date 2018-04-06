@@ -72,10 +72,11 @@ class EntriesTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Geissler\Converter\Model\Container::offsetSet
+     * 
+     * @expectedException ErrorException
      */
     public function testDoNotSetNoneEntry()
     {
-        $this->setExpectedException('ErrorException');
         $this->object[] =   true;
     }
 

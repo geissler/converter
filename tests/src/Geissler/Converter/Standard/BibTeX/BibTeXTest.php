@@ -90,12 +90,13 @@ booktitle = {The title of the book}
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::parse
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::create
      * @covers Geissler\Converter\Standard\Basic\StandardAbstract::retrieve
+     * 
+     * @expectedException ErrorException
      */
     public function testDoNotRun()
     {
         $this->assertFalse($this->object->parse());
         $this->assertEquals('', $this->object->create(new \Geissler\Converter\Model\Entries()));
-        $this->setExpectedException('ErrorException');
         $this->object->retrieve();
     }
 }

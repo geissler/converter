@@ -332,11 +332,12 @@ class ParserTest extends \PHPUnit\Framework\TestCase
      * @covers Geissler\Converter\Standard\BibTeX\Parser::parse
      * @covers Geissler\Converter\Standard\BibTeX\Parser::extract
      * @covers Geissler\Converter\Standard\BibTeX\Parser::retrieve
+     * 
+     * @expectedException ErrorException
      */
     public function testParseNot()
     {
         $this->assertFalse($this->object->parse(''));
-        $this->setExpectedException('ErrorException');
         $this->object->retrieve();
     }
 }

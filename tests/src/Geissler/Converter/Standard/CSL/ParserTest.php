@@ -217,10 +217,11 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Geissler\Converter\Standard\CSL\Parser::retrieve
+     * 
+     * @expectedException ErrorException
      */
     public function testDoNotRetrieve()
     {
-        $this->setExpectedException('ErrorException');
         $this->assertFalse($this->object->parse(''));
         $this->object->retrieve();
     }

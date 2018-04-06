@@ -8,7 +8,7 @@ use Geissler\Converter\Model\Person;
 use Geissler\Converter\Model\Date;
 
 /**
- * Transfer one ore multiple BibTex entries in objects of class Geissler\Converter\Model\Entry.
+ * Transfer one or multiple BibTex entries in objects of class Geissler\Converter\Model\Entry.
  *
  * @author Benjamin Geißler <benjamin.geissler@gmail.com>
  * @license MIT

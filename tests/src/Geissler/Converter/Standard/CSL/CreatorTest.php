@@ -38,40 +38,17 @@ class CreatorTest extends \PHPUnit\Framework\TestCase
      */
     public function testCreate($input, $titles, $types, $authors = false, $issued = false, $issuedFull = false)
     {
-        $parser =   new Parser();
+        // Parse the input JSON into Entries then transform the Entries into JSON to exercise the 
+        // CSL Creator.
+        $parser = new Parser();
         $this->assertTrue($parser->parse($input));
         $this->assertTrue($this->object->create($parser->retrieve()));
-        $csl    =   json_decode($this->object->retrieve(), true);
-        $count  =   0;
+        $output = $this->object->retrieve();
 
-        foreach ($csl as $entry) {
-            $this->assertEquals($titles[$count], $entry['title']);
-            $this->assertEquals($types[$count], $entry['type']);
-
-            if ($authors !== false) {
-                $countAuthors   =   count($authors[$count]);
-                for ($i = 0; $i < $countAuthors; $i++) {
-                    $this->assertEquals($authors[$count][$i]['family'], $entry['author'][$i]['family']);
-                    $this->assertEquals($authors[$count][$i]['given'], $entry['author'][$i]['given']);
-                }
-            }
-
-            if ($issued !== false
-                && isset($issued[$count]) == true) {
-                $this->assertEquals($issued[$count]['year'], $entry['issued'][0]['year']);
-                $this->assertArrayNotHasKey('day', $entry['issued'][0]);
-                $this->assertArrayNotHasKey('month', $entry['issued'][0]);
-            }
-
-            if ($issuedFull !== false
-                && isset($issuedFull[$count]) == true) {
-                $this->assertEquals($issuedFull[$count]['year'], $entry['issued'][0]['year']);
-                $this->assertEquals($issuedFull[$count]['day'], $entry['issued'][0]['day']);
-                $this->assertEquals($issuedFull[$count]['month'], $entry['issued'][0]['month']);
-            }
-
-            $count++;
-        }
+        // Normalised both input and output JSON, then compare them.
+        $normalised_input_json = json_encode(array_multisort(json_decode($input)));
+        $normalised_output_json = json_encode(array_multisort(json_decode($output)));
+        $this->assertEquals($normalised_input_json, $normalised_output_json);
     }
 
     public function dataProviderForCreate()
