@@ -7,10 +7,9 @@
  */
 class BIBFORMAT
 {
-	function BIBFORMAT()
+	function __construct()
 	{
 		$config = new BIBTEXCONFIG();
-		$config->bibtex();
 
 		// Construction of the transformation filter
 		foreach($config->bibtexSpCh as $key => $value)
@@ -63,13 +62,8 @@ class BIBFORMAT
 
 class BIBTEXCONFIG
 {
-// Constructor
-  function BIBTEXCONFIG()
-  {
-  }
-
 // BibTeX arrays
-  function bibtex()
+  function __construct()
   {
     $this->bibtexSpCh = array(
 // Deal with '{' and '}' first!
