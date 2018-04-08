@@ -328,6 +328,28 @@ class ParserTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('8', $date->getDay());
     }
 
+        /**
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::parse
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::extract
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::create
+     */
+    public function testLatexEscapes()
+    {
+        $input = <<<CITATION
+@misc{JUSC1412888C,
+    title = {Circulaire du 23 juillet 2014 relative {\`{a}} l'{\'{e}}tat civil},
+    year = {2014}
+}
+CITATION;
+        
+        $this->assertTrue($this->object->parse($input));
+        $entries    =   $this->object->retrieve();
+        /** @var $entry \Geissler\Converter\Model\Entry */
+        $entry  =   $entries[0];
+        $title  =   $entry->getTitle();
+        $this->assertEquals("Circulaire du 23 juillet 2014 relative à l'état civil", $title);
+    }
+
     /**
      * @covers Geissler\Converter\Standard\BibTeX\Parser::parse
      * @covers Geissler\Converter\Standard\BibTeX\Parser::extract

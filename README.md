@@ -46,7 +46,7 @@ To convert form one standard to an other:
     $bibTeX =   $converter->convert(new RIS($data), new BibTeX());
 
     /**
-     * $bibTeX has know the following value:
+     * $bibTeX now has the following value:
      *
      * @article{article,
      *      author = {Einstein, Albert},
@@ -61,7 +61,7 @@ To convert form one standard to an other:
      $csl   =   $converter->convert(new BibTeX($bibTeX), new CSL());
 
      /**
-      * $csl has know the following value (a UTF-8 encoded json string):
+      * $csl now has the following value (a UTF-8 encoded json string):
       *
       * [
       *     {

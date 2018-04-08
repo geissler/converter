@@ -45,7 +45,7 @@ class CreatorTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($this->object->create($parser->retrieve()));
         $output = $this->object->retrieve();
 
-        // Normalised both input and output JSON, then compare them.
+        // Normalise both input and output JSON, then compare them.
         $normalised_input_json = json_encode(array_multisort(json_decode($input)));
         $normalised_output_json = json_encode(array_multisort(json_decode($output)));
         $this->assertEquals($normalised_input_json, $normalised_output_json);

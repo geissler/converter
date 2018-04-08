@@ -20,10 +20,11 @@
             "Geissler\\": "src/Geissler/"
         },
         "files": [
-            "library/bibtexParse/PARSEENTRIES.php",
-            "library/bibtexParse/PARSECREATORS.php",
-            "library/bibtexParse/PARSEMONTH.php",
-            "library/bibtexParse/PARSEPAGE.php"
+            "library/format/bibtexParse/PARSEENTRIES.php",
+            "library/format/bibtexParse/PARSECREATORS.php",
+            "library/format/bibtexParse/PARSEMONTH.php",
+            "library/format/bibtexParse/PARSEPAGE.php",
+            "library/format/BIBFORMAT.php"
         ]
     },
     "require-dev": {

@@ -103,10 +103,19 @@ class Parser implements ParserInterface
     private function create(array $data)
     {
         $this->entries  =   new Entries();
-
-        $length =   count($data);
+        $bibFormat = new \BIBFORMAT();
+        
+        $length = count($data);
         for ($i = 0; $i < $length; $i++) {
-            $entry  =   new Entry();
+            $entry = new Entry();
+
+            // Recursively convert escape sequences to native UTF-8 characters.
+            array_walk_recursive(
+                $data[$i],
+                function(&$node) use ($bibFormat) { 
+                    $node = is_string($node) ? $bibFormat->convertBibtexToUtf8($node): $node;
+                }
+            );
 
             switch ($data[$i]['bibtexEntryType']) {
                 case 'article':
