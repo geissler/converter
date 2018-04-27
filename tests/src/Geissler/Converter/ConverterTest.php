@@ -73,7 +73,8 @@ class ConverterTest extends \PHPUnit\Framework\TestCase
           "container-title" : "Journal of Roman archaeology",
           "volume" : "24",
           "page" : "121-160",
-          "type": "article-journal"
+          "type": "article-journal",
+          "URL": "https://www.cambridge.org/core/journals/journal-of-roman-archaeology/article/the-monumental-centre-of-herculaneum-in-search-of-the-identities-of-the-public-buildings/BAFFDCBFB5E997CD53C746B4370BE1A7"
       }]'
                 ),
                 new BibTeX(),
@@ -82,7 +83,8 @@ author = {Wallace-Hadrill, Andrew and Zanker, Paul and Boschung, Dieter},
 year = {2011},
 pages = {121-160},
 title = {The monumental centre of Herculaneum. In search of the identities of the public buildings},
-booktitle = {Journal of Roman archaeology}
+booktitle = {Journal of Roman archaeology},
+url = {https://www.cambridge.org/core/journals/journal-of-roman-archaeology/article/the-monumental-centre-of-herculaneum-in-search-of-the-identities-of-the-public-buildings/BAFFDCBFB5E997CD53C746B4370BE1A7}
 }'
             ),
             array(
