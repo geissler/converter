@@ -355,6 +355,36 @@ CITATION;
      * @covers Geissler\Converter\Standard\BibTeX\Parser::extract
      * @covers Geissler\Converter\Standard\BibTeX\Parser::create
      */
+    public function testRemoveEnclosingBraces()
+    {
+        // Add redundant braces to the title and to the author.
+        $input = <<<CITATION
+@misc{JUSC1412888C,
+    title = {{Circulaire du 23 juillet 2014 relative {\`{a}} l'{\'{e}}tat civil}},
+    year = {2014},
+    author = {{Smith, John}}
+}
+CITATION;
+        
+        $this->assertTrue($this->object->parse($input));
+        $entries    =   $this->object->retrieve();
+        /** @var $entry \Geissler\Converter\Model\Entry */
+        $entry  =   $entries[0];
+        $title  =   $entry->getTitle();
+        $this->assertEquals("Circulaire du 23 juillet 2014 relative à l'état civil", $title);
+
+        /** @var $author \Geissler\Converter\Model\Person */
+        $author = $entry->getAuthor()[0];
+        $this->assertInstanceOf('\Geissler\Converter\Model\Person', $author);
+        $this->assertEquals("John", $author->getGiven());
+        $this->assertEquals("Smith", $author->getFamily());
+    }    
+
+    /**
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::parse
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::extract
+     * @covers Geissler\Converter\Standard\BibTeX\Parser::create
+     */
     public function testUrls()
     {
         $inputs = array(

@@ -109,11 +109,20 @@ class Parser implements ParserInterface
         for ($i = 0; $i < $length; $i++) {
             $entry = new Entry();
 
-            // Recursively convert escape sequences to native UTF-8 characters.
             array_walk_recursive(
                 $data[$i],
                 function(&$node) use ($bibFormat) { 
-                    $node = is_string($node) ? $bibFormat->convertBibtexToUtf8($node): $node;
+
+                    if (!is_string($node))
+                        return;
+
+                    // Convert Latex escape sequences to UTF8 characters.
+                    $node = $bibFormat->convertBibtexToUtf8($node);
+
+                    // Remove any enclosing braces - no other formats support 
+                    // explicit casing rules so there's little point preserving
+                    // Latex casing here.
+                    $node = preg_replace(array("/^\{/", "/\}$/"), "", $node);
                 }
             );
 

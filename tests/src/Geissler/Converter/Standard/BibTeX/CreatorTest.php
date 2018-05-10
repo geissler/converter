@@ -106,7 +106,7 @@ chapter = {8}
             ),
             array('@Book{Von330,
   author = {von Rohden, Hermann and Winnefeld, Hermann},
-  title = {{Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit}},
+  title = {Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit},
   shorttitle = {},
   keywords = {Nemi NochZuLesen Terrakotten Vergleich},
   journal = {},
@@ -131,7 +131,7 @@ chapter = {8}
             '@book{Von330,
 author = {von Rohden, Hermann and Winnefeld, Hermann},
 year = {1911},
-title = {{Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit}},
+title = {Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit},
 address = {Berlin},
 keywords = {Nemi, NochZuLesen, Terrakotten, Vergleich}
 }'),
@@ -186,7 +186,7 @@ school = {The school where the thesis was written}
 }'),
             array('@Book{Von330,
   author = {von Rohden, Hermann and Winnefeld, Hermann},
-  title = {{Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit}},
+  title = {Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit},
   shorttitle = {},
   keywords = {Nemi NochZuLesen Terrakotten Vergleich},
   journal = {},
@@ -211,7 +211,7 @@ school = {The school where the thesis was written}
 
 @Book{Pensabene332,
   author = {Pensabene, Patrizio},
-  title = {{Scavi di Ostia VII - I capitelli}},
+  title = {Scavi di Ostia VII - I capitelli},
   shorttitle = {},
   keywords = {Architektur NochZuLesen Ostia Vergleich},
   journal = {},
@@ -237,7 +237,7 @@ school = {The school where the thesis was written}
             '@book{Von330,
 author = {von Rohden, Hermann and Winnefeld, Hermann},
 year = {1911},
-title = {{Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit}},
+title = {Die antiken Terrakotten IV, 2 - Architektonische römische Tonreliefs der Kaiserzeit},
 address = {Berlin},
 keywords = {Nemi, NochZuLesen, Terrakotten, Vergleich}
 }
@@ -245,7 +245,7 @@ keywords = {Nemi, NochZuLesen, Terrakotten, Vergleich}
 @book{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }'),
@@ -253,42 +253,42 @@ keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
                 '@article{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
 @manual{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
 @inproceedings{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
 @booklet{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
 @techreport{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
 @unpublished{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
@@ -296,7 +296,7 @@ keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
                 '@article{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
@@ -304,7 +304,7 @@ keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 @book{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
@@ -312,7 +312,7 @@ keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 @inproceedings{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
@@ -320,7 +320,7 @@ keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 @booklet{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
@@ -328,7 +328,7 @@ keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 @techreport{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }
@@ -336,7 +336,7 @@ keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 @unpublished{Pensabene332,
 author = {Pensabene, Patrizio},
 year = {1973},
-title = {{Scavi di Ostia VII - I capitelli}},
+title = {Scavi di Ostia VII - I capitelli},
 address = {Rom},
 keywords = {Architektur, NochZuLesen, Ostia, Vergleich}
 }'
