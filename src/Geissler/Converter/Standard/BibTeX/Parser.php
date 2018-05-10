@@ -122,7 +122,15 @@ class Parser implements ParserInterface
                     // Remove any enclosing braces - no other formats support 
                     // explicit casing rules so there's little point preserving
                     // Latex casing here.
-                    $node = preg_replace(array("/^\{/", "/\}$/"), "", $node);
+                    //
+                    // We match any opening brace preceded only by whitespace,
+                    // and any closing space preceded by any character other 
+                    // than a backslash and followed only by whitespace.
+                    $node = preg_replace(
+                        array('/^\s*\{/', '/(?<=[^\\\\])\}\s*$/'), 
+                        '', 
+                        $node
+                    );
                 }
             );
 

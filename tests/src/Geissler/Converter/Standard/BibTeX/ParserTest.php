@@ -338,7 +338,8 @@ class ParserTest extends \PHPUnit\Framework\TestCase
         $input = <<<CITATION
 @misc{JUSC1412888C,
     title = {Circulaire du 23 juillet 2014 relative {\`{a}} l'{\'{e}}tat civil},
-    year = {2014}
+    year = {2014},
+    author = {Mohammed A{\"{i}}ssaoui}
 }
 CITATION;
         
@@ -348,6 +349,12 @@ CITATION;
         $entry  =   $entries[0];
         $title  =   $entry->getTitle();
         $this->assertEquals("Circulaire du 23 juillet 2014 relative à l'état civil", $title);
+
+        /** @var $author \Geissler\Converter\Model\Person */
+        $author = $entry->getAuthor()[0];
+        $this->assertInstanceOf('\Geissler\Converter\Model\Person', $author);
+        $this->assertEquals("Mohammed", $author->getGiven());
+        $this->assertEquals("Aïssaoui", $author->getFamily());
     }
 
     /**
@@ -362,7 +369,7 @@ CITATION;
 @misc{JUSC1412888C,
     title = {{Circulaire du 23 juillet 2014 relative {\`{a}} l'{\'{e}}tat civil}},
     year = {2014},
-    author = {{Smith, John}}
+    author = {{Mohammed A{\"{i}}ssaoui}}
 }
 CITATION;
         
@@ -376,8 +383,8 @@ CITATION;
         /** @var $author \Geissler\Converter\Model\Person */
         $author = $entry->getAuthor()[0];
         $this->assertInstanceOf('\Geissler\Converter\Model\Person', $author);
-        $this->assertEquals("John", $author->getGiven());
-        $this->assertEquals("Smith", $author->getFamily());
+        $this->assertEquals("Mohammed", $author->getGiven());
+        $this->assertEquals("Aïssaoui", $author->getFamily());
     }    
 
     /**
