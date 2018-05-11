@@ -111,24 +111,25 @@ class Parser implements ParserInterface
 
             array_walk_recursive(
                 $data[$i],
-                function(&$node) use ($bibFormat) { 
+                function (&$node) use ($bibFormat) {
 
-                    if (!is_string($node))
+                    if (!is_string($node)) {
                         return;
+                    }
 
                     // Convert Latex escape sequences to UTF8 characters.
                     $node = $bibFormat->convertBibtexToUtf8($node);
 
-                    // Remove any enclosing braces - no other formats support 
+                    // Remove any enclosing braces - no other formats support
                     // explicit casing rules so there's little point preserving
                     // Latex casing here.
                     //
                     // We match any opening brace preceded only by whitespace,
-                    // and any closing space preceded by any character other 
+                    // and any closing space preceded by any character other
                     // than a backslash and followed only by whitespace.
                     $node = preg_replace(
-                        array('/^\s*\{/', '/(?<=[^\\\\])\}\s*$/'), 
-                        '', 
+                        array('/^\s*\{/', '/(?<=[^\\\\])\}\s*$/'),
+                        '',
                         $node
                     );
                 }

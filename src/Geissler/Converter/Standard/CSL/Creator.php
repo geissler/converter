@@ -269,7 +269,7 @@ class Creator implements CreatorInterface
             }
 
             if (!isset($data['date-parts']) && !empty($entry)) {
-              $data['date-parts']  = array();
+                $data['date-parts']  = array();
             }
             $data['date-parts'][] =   $entry;
         }

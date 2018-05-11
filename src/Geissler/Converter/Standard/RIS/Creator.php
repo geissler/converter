@@ -150,7 +150,6 @@ class Creator implements CreatorInterface
                             }
                         }
                     }
-
                 }
 
                 $this->data[]   =   $record;
