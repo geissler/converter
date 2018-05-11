@@ -7,7 +7,6 @@ before_script:
   - composer install
 
 script:
-  - pyrus install http://phptal.org/latest.tar.gz
   - pear install pear/PHP_CodeSniffer 
   - phpenv rehash
   - phpcs --standard=PSR2 src
