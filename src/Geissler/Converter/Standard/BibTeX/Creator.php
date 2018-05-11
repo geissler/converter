@@ -46,7 +46,8 @@ class Creator implements CreatorInterface
             'journal'           =>  'getJournal',
             'shorttitle'        =>  'getTitleShort',
             'keywords'          =>  'getKeyword',
-            'LCCN'              =>  'getCallNumber'
+            'LCCN'              =>  'getCallNumber',
+            'url'               =>  'getURL'
         );
 
         foreach ($data as $entry) {

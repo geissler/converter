@@ -1,5 +1,5 @@
 ## Converter
-[![Build Status](https://travis-ci.org/geissler/converter.png?branch=master)](https://travis-ci.org/geissler/converter)
+[![Build Status](https://travis-ci.org/ShadyChars/converter.png?branch=master)](https://travis-ci.org/ShadyChars/converter)
 
 A small library to convert the input data for different literature standards like BibTeX, CSL etc. into each other.
 At the moment are supported [BibTeX](http://en.wikipedia.org/wiki/BibTeX "BibTeX"),
@@ -46,7 +46,7 @@ To convert form one standard to an other:
     $bibTeX =   $converter->convert(new RIS($data), new BibTeX());
 
     /**
-     * $bibTeX has know the following value:
+     * $bibTeX now has the following value:
      *
      * @article{article,
      *      author = {Einstein, Albert},
@@ -61,7 +61,7 @@ To convert form one standard to an other:
      $csl   =   $converter->convert(new BibTeX($bibTeX), new CSL());
 
      /**
-      * $csl has know the following value (a UTF-8 encoded json string):
+      * $csl now has the following value (a UTF-8 encoded json string):
       *
       * [
       *     {
@@ -83,6 +83,13 @@ To convert form one standard to an other:
 
 ```
 
+## Limitations
+The built-in BibTeX converter has the following limitations:
+
+* Non-UTF-8 strings are converted to UTF-8
+* LaTeX escape sequences are converted to UTF-8 characters
+* Enclosing braces are discarded. (Neither CSL nor RIS support explicit capitalisation.)
+
 ## Adding a standard
 To implement a new standard is quite simple:
 
@@ -94,5 +101,8 @@ To implement a new standard is quite simple:
 5. Implement the methods **create** and **retrieve** in **Creator.php**
 6. Implement the methods **parse** and **retrieve** in **Parser.php**
 7. Don't forget to write your PHPUnit tests and follow the
-[PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md "PSR-2") coding
-standard
+[PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md "PSR-2") coding standard
+
+## Tests
+
+Converter depends on PHPUnit. Ensure that your dependencies are up to date by running `composer update` then call `vendor\bin\phpunit tests` to run all the tests.
