@@ -1,5 +1,5 @@
 ## Converter
-[![Build Status](https://travis-ci.org/geissler/converter.png?branch=master)](https://travis-ci.org/geissler/converter)
+[![Build Status](https://travis-ci.org/ShadyChars/converter.png?branch=master)](https://travis-ci.org/ShadyChars/converter)
 
 A small library to convert the input data for different literature standards like BibTeX, CSL etc. into each other.
 At the moment are supported [BibTeX](http://en.wikipedia.org/wiki/BibTeX "BibTeX"),
@@ -82,6 +82,13 @@ To convert form one standard to an other:
       */
 
 ```
+
+## Limitations
+The built-in BibTeX converter has the following limitations:
+
+* Non-UTF-8 strings are converted to UTF-8
+* LaTeX escape sequences are converted to UTF-8 characters
+* Enclosing braces are discarded. (Neither CSL nor RIS support explicit capitalisation.)
 
 ## Adding a standard
 To implement a new standard is quite simple:
