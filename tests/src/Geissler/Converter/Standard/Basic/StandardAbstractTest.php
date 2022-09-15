@@ -28,7 +28,7 @@ class StandardAbstractTest extends \PHPUnit\Framework\TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->object = new StandardMock;
     }
@@ -37,7 +37,7 @@ class StandardAbstractTest extends \PHPUnit\Framework\TestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      */
-    protected function tearDown()
+    protected function tearDown() : void
     {
     }
 
@@ -48,6 +48,7 @@ class StandardAbstractTest extends \PHPUnit\Framework\TestCase
      */
     public function testParse()
     {
+        $this->expectException(\ErrorException::class);
         $this->object->parse('');
     }
 
@@ -58,6 +59,7 @@ class StandardAbstractTest extends \PHPUnit\Framework\TestCase
      */
     public function testRetrieve()
     {
+        $this->expectException(\ErrorException::class);
         $this->object->retrieve();
     }
 
@@ -68,6 +70,7 @@ class StandardAbstractTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetCreator()
     {
+        $this->expectException(\ErrorException::class);
         $this->object->getCreator();
     }
 
@@ -78,6 +81,7 @@ class StandardAbstractTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetParser()
     {
+        $this->expectException(\ErrorException::class);
         $this->object->getParser();
     }
 }

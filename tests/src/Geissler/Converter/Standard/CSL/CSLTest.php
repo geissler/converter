@@ -15,7 +15,7 @@ class CSLTest extends \PHPUnit\Framework\TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->object = new CSL;
     }
@@ -24,7 +24,7 @@ class CSLTest extends \PHPUnit\Framework\TestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      */
-    protected function tearDown()
+    protected function tearDown() : void
     {
     }
 
@@ -43,7 +43,7 @@ class CSLTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertTrue($this->object->parse($input));
         $this->assertInstanceOf('\Geissler\Converter\Model\Entries', $this->object->retrieve());
-        $this->assertInternalType('array', json_decode($this->object->create($this->object->retrieve())));
+        $this->assertIsArray(json_decode($this->object->create($this->object->retrieve())));
     }
 
     public function dataProviderParse()

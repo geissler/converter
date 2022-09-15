@@ -15,7 +15,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->object = new Parser;
     }
@@ -24,7 +24,7 @@ class ParserTest extends \PHPUnit\Framework\TestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      */
-    protected function tearDown()
+    protected function tearDown() : void
     {
     }
 
@@ -510,6 +510,7 @@ ER  -',
     public function testRetrieve()
     {
         $this->assertFalse($this->object->parse(''));
+        $this->expectException(\ErrorException::class);
         $this->object->retrieve();
     }
 }
