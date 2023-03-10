@@ -132,15 +132,22 @@ END;
 
 class PARSEENTRIES
 {
+	public $preamble = array();
+	public $strings = array();
+	public $undefinedStrings = array();
+	public $entries = array();
+	public $count = 0;
+	public $fieldExtract = TRUE;
+	public $removeDelimit = TRUE;
+	public $expandMacro = FALSE;
+	public $parseFile = TRUE;
+	public $outsideEntry = TRUE;
+	private $bibtexString;
+	private $currentLine;
+	
+
 	function __construct()
 	{
-		$this->preamble = $this->strings = $this->undefinedStrings = $this->entries = array();
-		$this->count = 0;
-		$this->fieldExtract = TRUE;
-		$this->removeDelimit = TRUE;
-		$this->expandMacro = FALSE;
-		$this->parseFile = TRUE;
-		$this->outsideEntry = TRUE;
 	}
 
 	function PARSEENTRIES()
