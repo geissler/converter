@@ -27,6 +27,8 @@ http://bibliophile.sourceforge.net
 
 class PARSECREATORS
 {
+	private $prefix;
+
 	function __construct()
 	{
 	}
@@ -127,7 +129,8 @@ class PARSECREATORS
 	function grabSurname($input)
 	{
 		$surnameArray = explode(" ", $input);
-		$noPrefix = $surname = FALSE;
+		$noPrefix = FALSE;
+		$surname = array();
 		foreach($surnameArray as $value)
 		{
 			$firstChar = substr($value, 0, 1);

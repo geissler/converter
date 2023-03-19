@@ -15,6 +15,8 @@ http://bibliophile.sourceforge.net*/
 *****/
 class PARSEPAGE
 {
+	private $return;
+	
 // Constructor
 	function __construct()
 	{

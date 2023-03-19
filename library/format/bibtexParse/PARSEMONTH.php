@@ -25,6 +25,9 @@ http://bibliophile.sourceforge.net
 // 17/June/2005 - Mark Grimshaw:  month fields that have multiple dates (e.g. dec # " 5--9," or nov # " 29" # "--" # dec # " 2") are correctly parsed.
 class PARSEMONTH
 {
+	private $endDay = FALSE;
+	private $startDay = FALSE;
+
 // Constructor
 	function __construct()
 	{
@@ -38,7 +41,7 @@ class PARSEMONTH
 	
 	function init($monthField)
 	{
-		$startMonth = $this->startDay = $endMonth = $this->endDay = FALSE;
+		$startMonth = $endMonth = FALSE;
 		$date = explode("#", $monthField);
 		foreach($date as $field)
 		{

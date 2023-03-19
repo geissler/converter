@@ -29,7 +29,7 @@ abstract class Container implements \IteratorAggregate, \ArrayAccess, \Countable
      * @return \Traversable An instance of an object implementing <b>Iterator</b> or
      * <b>Traversable</b>
      */
-    public function getIterator()
+    public function getIterator() : \Traversable
     {
         return new \ArrayIterator($this->data);
     }
@@ -46,7 +46,7 @@ abstract class Container implements \IteratorAggregate, \ArrayAccess, \Countable
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset) : bool
     {
         return isset($this->data[$offset]);
     }
@@ -60,7 +60,7 @@ abstract class Container implements \IteratorAggregate, \ArrayAccess, \Countable
      * </p>
      * @return mixed Can return all value types.
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset) : mixed
     {
         return isset($this->data[$offset]) ? $this->data[$offset] : null;
     }
@@ -79,7 +79,7 @@ abstract class Container implements \IteratorAggregate, \ArrayAccess, \Countable
      * @throws \ErrorException
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value) : void
     {
         if (is_object($value) == false) {
             throw new \ErrorException('Only objects are allowed!');
@@ -101,7 +101,7 @@ abstract class Container implements \IteratorAggregate, \ArrayAccess, \Countable
      * </p>
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset) : void
     {
         unset($this->data[$offset]);
     }
@@ -116,7 +116,7 @@ abstract class Container implements \IteratorAggregate, \ArrayAccess, \Countable
      * <p>
      *       The return value is cast to an integer.
      */
-    public function count()
+    public function count() : int
     {
         return count($this->data);
     }

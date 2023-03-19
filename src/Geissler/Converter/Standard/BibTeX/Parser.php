@@ -8,7 +8,7 @@ use Geissler\Converter\Model\Person;
 use Geissler\Converter\Model\Date;
 
 /**
- * Transfer one ore multiple BibTex entries in objects of class Geissler\Converter\Model\Entry.
+ * Transfer one or multiple BibTex entries in objects of class Geissler\Converter\Model\Entry.
  *
  * @author Benjamin Geißler <benjamin.geissler@gmail.com>
  * @license MIT
@@ -103,10 +103,37 @@ class Parser implements ParserInterface
     private function create(array $data)
     {
         $this->entries  =   new Entries();
-
-        $length =   count($data);
+        $bibFormat = new \BIBFORMAT();
+        
+        $length = count($data);
         for ($i = 0; $i < $length; $i++) {
-            $entry  =   new Entry();
+            $entry = new Entry();
+
+            array_walk_recursive(
+                $data[$i],
+                function (&$node) use ($bibFormat) {
+
+                    if (!is_string($node)) {
+                        return;
+                    }
+
+                    // Convert Latex escape sequences to UTF8 characters.
+                    $node = $bibFormat->convertBibtexToUtf8($node);
+
+                    // Remove any enclosing braces - no other formats support
+                    // explicit casing rules so there's little point preserving
+                    // Latex casing here.
+                    //
+                    // We match any opening brace preceded only by whitespace,
+                    // and any closing space preceded by any character other
+                    // than a backslash and followed only by whitespace.
+                    $node = preg_replace(
+                        array('/^\s*\{/', '/(?<=[^\\\\])\}\s*$/'),
+                        '',
+                        $node
+                    );
+                }
+            );
 
             switch ($data[$i]['bibtexEntryType']) {
                 case 'article':
@@ -229,7 +256,8 @@ class Parser implements ParserInterface
                 'bibtexCitation'    =>  'setCitationLabel',
                 'shorttitle'        =>  'setTitleShort',
                 'keywords'          =>  'setKeyword',
-                'LCCN'              =>  'setCallNumber'
+                'LCCN'              =>  'setCallNumber',
+                'url'               =>  'setURL',
             );
 
             foreach ($mapper as $key => $method) {
